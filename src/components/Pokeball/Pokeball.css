@@ -1,0 +1,75 @@
+.pokeball {
+  width: 200px;
+  height: 200px;
+  margin: -100px 0 20px -100px;
+  position: absolute;
+  top: 50%;
+  background-color: #eee;
+  border-radius: 100%;
+  box-shadow: 10px -10px  rgba(0,0,0,0.6);
+}
+
+.pokeball.animateLayout {
+ animation: moveLayout 3s ease infinite;
+}
+
+.pokeball.animateComposite {
+ animation: moveComposite 3s ease infinite;
+}
+
+.pokeball::before {
+  content: '';
+  width: 200px;
+  height: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-top-left-radius: 200px;
+  border-top-right-radius: 200px;
+  background-color: #ff4344;
+}
+
+@keyframes moveComposite {
+  50% {
+     transform: translate(100px, 100px);
+  }
+}
+
+@keyframes moveLayout {
+  50% {
+     top: 200px;
+     left: 200px;
+  }
+}
+
+.pokeball::after {
+  content: '';
+  width: 200px;
+  height: 10px;
+  position: absolute;
+  top: calc(50% - 5px);
+  left: 0;
+  background: #333; 
+}
+.pokeballButton {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  border: 10px solid #333;
+  background-color: #eee;
+  left: calc(50% - 35px);
+  top: calc(50% - 35px);
+  z-index: 1;
+}
+.pokeballButton::after {
+  content: '';
+  position: absolute;
+  top: calc(50% - 17px);
+  left: calc(50% - 17px);
+  height: 30px;
+  width: 30px;
+  border: 2px solid #333;
+  border-radius: 100%;
+}
+
